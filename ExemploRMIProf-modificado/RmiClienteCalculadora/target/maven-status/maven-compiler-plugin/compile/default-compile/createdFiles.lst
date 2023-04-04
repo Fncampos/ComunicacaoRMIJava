@@ -1,0 +1,8 @@
+br\com\calculadora\cliente\form\ClientCalc$2.class
+br\com\calculadora\cliente\form\ClientCalc$4.class
+br\com\calculadora\cliente\form\ClientCalc.class
+br\com\calculadora\cliente\form\ClientCalc$3.class
+br\com\rmi\view\ProgramaClienteRMI.class
+br\com\calculadora\cliente\form\ClientCalc$1.class
+br\com\rmi\control\IRmiServidorExemplo.class
+br\com\rmi\control\InterfaceCalculadora.class
