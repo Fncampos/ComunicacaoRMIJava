@@ -14,60 +14,47 @@ import java.util.ArrayList;
  */
 public class ImpClassificados extends UnicastRemoteObject implements InterfaceClassificadoVeiculos {
     private static final long serialVersionUID = 1L;
-    Veiculo veiculo = new Veiculo();
-    ArrayList<Veiculo> carros = new ArrayList<>();
+    
+    ArrayList <Veiculo> carros = new ArrayList();
 
     public ImpClassificados() throws RemoteException {
         super();
     }
-      
+   
     @Override
-    public String addNome(String txt) throws RemoteException {
-        veiculo.setNome (txt);
-        
-        return ("Nome gravado na Class Veiculo. Recebi a msg " + txt);
-    }   
-
-    @Override
-    public String addMarca(String txt) throws RemoteException {
-        veiculo.setMarca(txt);
-        return "Marca gravada";
-    }
-
-    @Override
-    public String addAno(int txt) throws RemoteException {
-        veiculo.setAno(txt);
-        return "Ano gravado";
+    public void add(String nome, String marca, int ano, double valor){
+        Veiculo objveiculo = new Veiculo(nome, marca, ano,valor);
+        carros.add(objveiculo);
         
     }
-
-    @Override
-    public String addValor(Double txt) throws RemoteException {
         
-        veiculo.setValor(txt);
-        guardarVeiculo(veiculo);
-        return "Valor gravado";
-    }
-     //public String exibeDados(){
-      //   String info = "Cliente: "+this.nome+ "\nMarca: "+this.marca+"\nAno: "+Integer.toString(this.ano)+"\nValor: R$"+Double.toString(this.Valor);
-        // return info;
-     //}
-     public String listaVeiculo(){
-         StringBuilder carroList = new StringBuilder("lista de carros:");
+    @Override
+    public String exibeLista(){
+        int total = 0;
+        
+        StringBuilder carroList = new StringBuilder("lista de carros:");
          for(Veiculo carro:carros){
-            String info = "Cliente: "+carro.getNome()+ "\nMarca: "+carro.getMarca()+"\nAno: "+Integer.toString(carro.getAno())+"\nValor: R$"+Double.toString(carro.getValor());
+           total++;
+           String info = "Cliente: "+carro.getNome()+ "\nMarca: "+carro.getMarca()+"\nAno: "+Integer.toString(carro.getAno())+"\nValor: R$"+Double.toString(carro.getValor())+"\n----------------------------";
            carroList.append("\n").append(info);
+           
          }
+         carroList.append("\nTotal: "+Integer.toString(total));
          return carroList.toString();
-     }
- 
-     //public void guadarVeiculo(Veiculo veiculo){
-        // carros.add(veiculo);
-     //}
-
-    private void guardarVeiculo(Veiculo aThis) {
-         carros.add(aThis);
-        
     }
+     public String search2Ano(int ano){
+        int total = 0;
+        
+        StringBuilder carroList = new StringBuilder("lista de carros:");
+        for(Veiculo carro:carros){
+           if(carro.getAno()== ano){ 
+            total++;
+            String info = "Cliente: "+carro.getNome()+ "\nMarca: "+carro.getMarca()+"\nAno: "+Integer.toString(carro.getAno())+"\nValor: R$"+Double.toString(carro.getValor())+"\n----------------------------";
+            carroList.append("\n").append(info);
+           }
+         }
+         carroList.append("\nTotal: "+Integer.toString(total));
+         return carroList.toString();
+    }
+}    
     
-}

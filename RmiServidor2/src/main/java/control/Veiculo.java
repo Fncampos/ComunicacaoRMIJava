@@ -14,48 +14,36 @@ import java.rmi.RemoteException;
  */
 public class Veiculo{
     
-    String nome;
-    String marca;
-    int ano;
-    double Valor;
-    
-    
-    public void setNome(String nome) {
+    private String nome;
+    private String marca;
+    private int ano;
+    private double Valor;
+
+    public Veiculo(String nome, String marca, int ano, double Valor) {
+        //super();
         this.nome = nome;
-    }
-
-    public void setMarca(String marca) {
         this.marca = marca;
-    }
-
-    public void setAno(int ano) {
         this.ano = ano;
-    }
-
-    public void setValor(double Valor) {
         this.Valor = Valor;
     }
-
-    
+       
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getMarca() {
-        return marca;
+        return this.marca;
     }
 
     public int getAno() {
-        return ano;
+        return this.ano;
     }
 
     public double getValor() {
-        return Valor;
+        
+        return this.Valor;
     }
-    
-    
-    
-     
+   
 }
 
      
